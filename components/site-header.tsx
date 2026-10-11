@@ -52,12 +52,6 @@ export function SiteHeader() {
               EN
             </a>
           </div>
-          <Link
-            href="/contacts"
-            className="rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Зв&apos;язатися
-          </Link>
         </div>
 
         <button
@@ -88,15 +82,6 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
-            <li className="mt-2">
-              <Link
-                href="/contacts"
-                onClick={() => setOpen(false)}
-                className="block rounded-sm bg-primary px-2 py-2.5 text-center text-sm font-medium text-primary-foreground"
-              >
-                Зв&apos;язатися
-              </Link>
-            </li>
           </ul>
         </nav>
       )}
