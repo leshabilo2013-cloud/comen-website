@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Zap, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 const NAV = [
   { label: "Головна", href: "/" },
@@ -23,9 +23,9 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
         <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
           <img 
-            src="https://i.postimg.cc/44Mh53mD/Logotip-png.png" 
+            src="/logo.png" 
             alt="Ком Ін Ком" 
-            className="h-10 w-auto object-contain mix-blend-screen" 
+            className="h-12 w-auto object-contain" 
           />
         </Link>
 
