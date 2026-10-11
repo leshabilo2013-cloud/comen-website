@@ -25,7 +25,7 @@ export function SiteHeader() {
           <img 
             src="https://i.postimg.cc/44Mh53mD/Logotip-png.png" 
             alt="Ком Ін Ком" 
-            className="h-12 w-auto object-contain brightness-0 invert" 
+            className="h-12 w-auto object-contain mix-blend-screen" 
           />
         </Link>
 
