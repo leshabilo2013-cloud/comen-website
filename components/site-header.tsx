@@ -21,29 +21,34 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-md shadow-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
-          <img 
-            src="https://i.postimg.cc/jqB5pJhM/Logotip-removebg-preview.png" 
-            alt="Ком Ін Ком" 
-            className="h-10 w-auto object-contain" 
-          />
-        </Link>
+        
+        {/* Контейнер для логотипа и меню, расположенных рядом */}
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
+            <img 
+              src="https://i.postimg.cc/jqB5pJhM/Logotip-removebg-preview.png" 
+              alt="Ком Ін Ком" 
+              className="h-10 w-auto object-contain" 
+            />
+          </Link>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Головна навігація">
-          {NAV.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              className={`text-sm transition-colors hover:text-black ${
-                isActive(item.href) ? "font-semibold text-black" : "text-gray-600"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden items-center gap-6 md:flex" aria-label="Головна навігація">
+            {NAV.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={`text-sm transition-colors hover:text-black ${
+                  isActive(item.href) ? "font-semibold text-black" : "text-gray-600"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
+        {/* Переключатель языка */}
         <div className="hidden items-center gap-3 md:flex">
           <div className="flex items-center gap-1 font-mono text-xs">
             <span className="font-bold text-black">UA</span>
@@ -54,6 +59,7 @@ export function SiteHeader() {
           </div>
         </div>
 
+        {/* Мобильная кнопка */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
