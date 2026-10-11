@@ -20,15 +20,15 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-md shadow-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5">
         
-        {/* Контейнер для логотипа и меню, расположенных рядом */}
+        {/* Контейнер для логотипа и меню */}
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
             <img 
               src="https://i.postimg.cc/jqB5pJhM/Logotip-removebg-preview.png" 
               alt="Ком Ін Ком" 
-              className="h-10 w-auto object-contain" 
+              className="h-14 md:h-16 w-auto object-contain transition-all" 
             />
           </Link>
 
