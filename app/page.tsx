@@ -16,25 +16,25 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="border-b border-border bg-background py-20 md:py-28">
+      <section className="border-b border-gray-200 bg-white py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:gap-16">
             <div>
-              <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">
-                <span className="h-px w-8 bg-primary" aria-hidden="true" />
+              <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-black">
+                <span className="h-px w-8 bg-black" aria-hidden="true" />
                 Хто ми
               </div>
-              <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl text-balance">
+              <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl text-balance">
                 Один підрядник для всіх інженерних мереж об&apos;єкта
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-muted-foreground text-pretty">
+              <p className="mt-6 text-base leading-relaxed text-gray-600 text-pretty">
                 ТОВ «Ком Ін Ком» спеціалізується на дослідженні об&apos;єкта, проектуванні та електромонтажних роботах у
                 комплексі з монтажем вентиляції, водопостачання, опалення, газозабезпечення, автоматизації та охоронної
                 сигналізації.
               </p>
               <Link
                 href="/about"
-                className="mt-8 inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                className="mt-8 inline-flex items-center gap-2 rounded-sm bg-black px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
               >
                 Про компанію
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -45,9 +45,9 @@ export default function HomePage() {
               {HIGHLIGHTS.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 rounded-sm border border-border bg-card p-4 text-sm text-foreground"
+                  className="flex items-start gap-2.5 rounded-sm border border-gray-200 bg-gray-50 p-4 text-sm font-medium text-gray-900 transition-all hover:bg-gray-100/80"
                 >
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-black" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
