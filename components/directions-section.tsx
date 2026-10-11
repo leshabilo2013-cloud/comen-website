@@ -37,7 +37,7 @@ const DIRECTIONS = [
     id: "06",
     icon: ClipboardCheck,
     title: "Проектні роботи та консалтинг",
-    desc: "Розробка проектної документації, комплексний технічний аудит та експертний консалтинг на всіх етапах реалізації.",
+    desc: "Розробка проектної документації, комплексний технічний аудит та експертний консалтинг на всіх етапах.",
   },
 ]
 
@@ -54,8 +54,7 @@ export function DirectionsSection() {
             Комплексний монтаж інженерних систем
           </h2>
           <p className="mt-4 text-base leading-relaxed text-gray-600 text-pretty">
-            Ми виконуємо повний спектр робіт із внутрішніх інженерних мереж — від електрики до автоматизації, поєднуючи
-            всі розділи проекту в єдиному підряді.
+            Ми виконуємо повний спектр робіт із внутрішніх інженерних мереж — від електрики до автоматизації, поєднуючи всі розділи проекту в єдиному підряді.
           </p>
         </Reveal>
 
@@ -67,7 +66,7 @@ export function DirectionsSection() {
                 <article
                   className={`group relative flex w-full flex-col p-7 transition-[background-color,box-shadow] duration-300 ${
                     d.featured
-                      ? "bg-black text-white"
+                      ? "bg-sky-400 text-white"
                       : "bg-white text-gray-900 hover:z-10 hover:bg-gray-50 hover:shadow-lg"
                   }`}
                 >
