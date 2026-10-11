@@ -23,7 +23,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
         <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
           <img 
-            src="/logo-transparent.png" 
+            src="https://i.postimg.cc/jqB5pJhM/Logotip-removebg-preview.png" 
             alt="Ком Ін Ком" 
             className="h-10 w-auto object-contain" 
           />
