@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, PanelTop } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 const NAV = [
   { label: "Головна", href: "/" },
@@ -21,18 +21,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-        <Link href="/" className="flex items-center gap-2.5 group" aria-label="Ком Ін Ком – головна">
-          <div className="flex items-center gap-2.5 brightness-0 invert">
-            <PanelTop className="h-9 w-9 text-foreground" />
-            <div className="flex flex-col">
-                <span className="font-mono text-xl font-bold tracking-wider text-foreground leading-none">
-                  COM<span className="text-primary">EN</span>COM
-                </span>
-                <span className="text-[10px] font-medium text-muted-foreground tracking-[0.2em] -mt-0.5">
-                    ELECTRIC SYSTEMS
-                </span>
-            </div>
-          </div>
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
+          <img 
+            src="https://i.postimg.cc/Dzw1YX2r/Logotip.jpg" 
+            alt="Ком Ін Ком" 
+            className="h-10 w-auto object-contain mix-blend-screen" 
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Головна навігація">
