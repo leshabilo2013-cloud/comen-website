@@ -21,13 +21,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-       <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
-  <img 
-  src="https://i.postimg.cc/Wz5K48sL/Logotip.jpg" 
-  alt="Ком Ін Ком" 
-  className="h-12 w-auto object-contain mix-blend-multiply" 
-/>
-</Link>
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Ком Ін Ком – головна">
+          <img 
+            src="https://i.postimg.cc/Wz5K48sL/Logotip.jpg" 
+            alt="Ком Ін Ком" 
+            className="h-12 w-auto object-contain mix-blend-screen" 
+          />
+        </Link>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Головна навігація">
           {NAV.map((item) => (
