@@ -25,7 +25,7 @@ export function SiteHeader() {
           <img 
             src="https://i.postimg.cc/44Mh53mD/Logotip-png.png" 
             alt="Ком Ін Ком" 
-            className="h-12 w-auto object-contain mix-blend-screen" 
+            className="h-12 w-auto object-contain brightness-0 invert" 
           />
         </Link>
 
@@ -80,26 +80,4 @@ export function SiteHeader() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`block rounded-sm px-2 py-2.5 text-sm transition-colors hover:bg-secondary hover:text-foreground ${
-                    isActive(item.href) ? "bg-secondary font-medium text-foreground" : "text-muted-foreground"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li className="mt-2">
-              <Link
-                href="/contacts"
-                onClick={() => setOpen(false)}
-                className="block rounded-sm bg-primary px-2 py-2.5 text-center text-sm font-medium text-primary-foreground"
-              >
-                Зв&apos;язатися
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
-    </header>
-  )
-}
+                  className={`block rounded-sm px-2 py-2.5 text-sm transition-colors hover:bg-secondary hover:text-
