@@ -43,7 +43,6 @@ const DIRECTIONS = [
 
 export function DirectionsSection() {
   return (
-    // Білий фон секції з синіми акцентами
     <section id="directions" className="scroll-mt-20 border-b border-blue-200 bg-white py-20 text-slate-900 md:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal className="max-w-2xl">
