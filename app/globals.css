@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+}
+
 :root {
   --primary: lab(58% -18 -35);
   --primary-foreground: #ffffff;
@@ -8,8 +26,22 @@
   --chart-2: lab(72% -15 -22);
   --accent: lab(74% -16 -14);
   --accent-foreground: #0f172a;
+
   --background: lab(98% -2 -4);
   --foreground: lab(18% -2 -10);
+
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
   --border: lab(88% -2 -4);
   --input: lab(88% -2 -4);
 }
