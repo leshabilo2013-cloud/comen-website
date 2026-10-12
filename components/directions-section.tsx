@@ -43,22 +43,22 @@ const DIRECTIONS = [
 
 export function DirectionsSection() {
   return (
-    <section id="directions" className="scroll-mt-20 border-b border-gray-200 bg-white py-20 md:py-28">
+    <section id="directions" className="scroll-mt-20 border-b border-zinc-800 bg-[#121212] py-20 text-white md:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal className="max-w-2xl">
-          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-black">
-            <span className="h-px w-8 bg-black" aria-hidden="true" />
+          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400">
+            <span className="h-px w-8 bg-zinc-600" aria-hidden="true" />
             Напрямки роботи
           </div>
-          <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl text-balance">
+          <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl text-balance">
             Комплексний монтаж інженерних систем
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-gray-600 text-pretty">
-            Ми виконуємо повний спектр робіт із внутрішніх інженерних мереж — від електрики до автоматизації, поєднуючи всі розділи проекту в єдиному підряді.
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 text-pretty">
+            Ми виконуємо повний спектр робіт із внутрішніх інженерних мереж — від електрики до автоматизації, поєднувавши всі розділи проекту в єдиному підряді.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-gray-200 bg-gray-200 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-zinc-800 bg-zinc-800 sm:grid-cols-2 lg:grid-cols-3">
           {DIRECTIONS.map((d, i) => {
             const Icon = d.icon
             return (
@@ -66,8 +66,8 @@ export function DirectionsSection() {
                 <article
                   className={`group relative flex w-full flex-col p-7 transition-[background-color,box-shadow] duration-300 ${
                     d.featured
-                      ? "bg-sky-400 text-white"
-                      : "bg-white text-gray-900 hover:z-10 hover:bg-gray-50 hover:shadow-lg"
+                      ? "bg-[#2d3b4e] text-white"
+                      : "bg-[#1c1d1f] text-zinc-200 hover:bg-[#25272a]"
                   }`}
                 >
                   <span
@@ -76,24 +76,26 @@ export function DirectionsSection() {
                   />
                   <div className="flex items-center justify-between">
                     <span
-                      className={`flex h-11 w-11 items-center justify-center rounded-sm transition-transform duration-300 group-hover:scale-110 ${
-                        d.featured ? "bg-white/15 text-yellow-400" : "bg-gray-100 text-black"
+                      className={`flex h-11 w-11 items-center justify-center rounded-md transition-transform duration-300 group-hover:scale-110 ${
+                        d.featured ? "bg-blue-500/30 text-blue-300" : "bg-zinc-800/80 text-zinc-400"
                       }`}
                     >
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <span
                       className={`font-mono text-xs ${
-                        d.featured ? "text-white/50" : "text-gray-400"
+                        d.featured ? "text-blue-200/70" : "text-zinc-500"
                       }`}
                     >
                       {d.id}
                     </span>
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-semibold leading-snug">{d.title}</h3>
+                  <h3 className="mt-5 font-display text-lg font-semibold leading-snug text-white">
+                    {d.title}
+                  </h3>
                   <p
                     className={`mt-2 text-sm leading-relaxed ${
-                      d.featured ? "text-white/75" : "text-gray-600"
+                      d.featured ? "text-blue-100/90" : "text-zinc-400"
                     }`}
                   >
                     {d.desc}
