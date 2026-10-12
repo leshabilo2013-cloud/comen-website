@@ -1,64 +1,64 @@
-import Link from "next/link"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
-import { Hero } from "@/components/hero"
-import { DirectionsSection } from "@/components/directions-section"
+@import "tailwindcss";
 
-const HIGHLIGHTS = [
-  "Індивідуальний підхід до кожного проекту",
-  "Комплексний монтаж внутрішніх інженерних мереж",
-  "Мінімізація помилок між розділами проекту",
-  "Економія часу та коштів замовника",
-]
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+}
 
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
+:root {
+  --primary: #facc15;
+  --primary-foreground: #111111;
+  --ring: #facc15;
+  --chart-1: #facc15;
+  --chart-2: #fef3c7;
+  --accent: #facc15;
+  --accent-foreground: #111111;
 
-      <section className="border-b border-blue-200 bg-gradient-to-b from-white to-blue-50 py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:gap-16">
-            <div>
-              <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-blue-700">
-                <span className="h-px w-8 bg-blue-600" aria-hidden="true" />
-                Хто ми
-              </div>
+  --background: #f7f7f5;
+  --foreground: #111111;
 
-              <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-blue-950 md:text-4xl text-balance">
-                Один підрядник для всіх інженерних мереж об&apos;єкта
-              </h2>
+  --card: #ffffff;
+  --card-foreground: #111111;
 
-              <p className="mt-6 text-base leading-relaxed text-slate-600 text-pretty">
-                ТОВ «Ком Ін Ком» спеціалізується на дослідженні об&apos;єкта, проектуванні та електромонтажних роботах
-                в комплексі з монтажем вентиляції, водопостачання, опалення, газозабезпечення, автоматизації
-                та охоронної сигналізації.
-              </p>
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111111;
 
-              <Link
-                href="/about"
-                className="mt-8 inline-flex items-center gap-2 rounded-sm bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-              >
-                Про компанію
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
+  --muted: #f5f5f4;
+  --muted-foreground: #4b5563;
 
-            <ul className="grid content-start gap-3 sm:grid-cols-1">
-              {HIGHLIGHTS.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-2.5 rounded-sm border border-blue-100 bg-white p-4 text-sm font-medium text-blue-950 shadow-sm transition-all hover:bg-blue-50"
-                >
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
 
-      <DirectionsSection />
-    </>
-  )
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+
+  --ink: #111111;
+  --ink-foreground: #f9fafb;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
 }

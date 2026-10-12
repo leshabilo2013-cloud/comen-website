@@ -1,122 +1,65 @@
-import { Zap, Wind, Droplets, Flame, ShieldCheck, ClipboardCheck } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 
-const DIRECTIONS = [
+const STEPS = [
   {
-    id: "01",
-    icon: Zap,
-    title: "Електромонтажні роботи",
-    desc: "Дослідження об'єкта, профектування та монтаж систем електропостачання будь-якої складності.",
-    featured: true,
+    n: "01",
+    title: "Отримання технічних умов",
+    desc: "Аналіз об'єкта та оформлення ТУ — відправна точка кожного проекту.",
   },
   {
-    id: "02",
-    icon: Wind,
-    title: "Системи резервного живлення",
-    desc: "Монтаж та підключення генераторів, інверторів, АКБ та систем безперебійного живлення.",
+    n: "02",
+    title: "Проектні роботи",
+    desc: "Розробка проектної документації по всіх розділах інженерних систем.",
   },
   {
-    id: "03",
-    icon: Droplets,
-    title: "Стабілізатори та захист мережі",
-    desc: "Встановлення систем захисту від перепадів напруги, стабілізаторів та розподільчих щитів.",
+    n: "03",
+    title: "Комплексний монтаж",
+    desc: "Електромонтаж у поєднанні з вентиляцією, водопостачанням, опаленням та автоматизацією.",
   },
   {
-    id: "04",
-    icon: Flame,
-    title: "Автоматизація та АВР",
-    desc: "Налаштування систем автоматичного вводу резерву (АВР) та автоматизації електромереж.",
-  },
-  {
-    id: "05",
-    icon: ShieldCheck,
-    title: "Автоматизація та сигналізація",
-    desc: "Проектування та монтаж систем охоронної сигналізації, відеоспостереження та контролю доступу.",
-  },
-  {
-    id: "06",
-    icon: ClipboardCheck,
-    title: "Проектні роботи та консалтинг",
-    desc: "Розробка проектної документації, комплексний технічний аудит та експертний консалтинг на всіх етапах.",
+    n: "04",
+    title: "Здача в експлуатацію",
+    desc: "Пусконалагодження та введення об'єкта в експлуатацію одним підрядником.",
   },
 ]
 
-export function DirectionsSection() {
+export function ProcessSection() {
   return (
-    <section id="directions" className="scroll-mt-20 border-b border-blue-200 bg-white py-20 text-slate-900 md:py-28">
+    <section id="process" className="scroll-mt-20 border-b border-yellow-200 bg-black py-20 text-white md:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal className="max-w-2xl">
-          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-blue-600">
-            <span className="h-px w-8 bg-blue-500" aria-hidden="true" />
-            Напрямки роботи
+          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-yellow-400">
+            <span className="h-px w-8 bg-yellow-400" aria-hidden="true" />
+            Повний цикл
           </div>
-
-          <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-blue-900 md:text-4xl text-balance">
-            Комплексний монтаж інженерних систем
+          <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-balance md:text-4xl">
+            Один підрядник на всіх етапах
           </h2>
-
-          <p className="mt-4 text-base leading-relaxed text-slate-600 text-pretty">
-            Ми виконуємо повний спектр робіт із внутрішніх інженерних мереж — від електрики до автоматизації,
-            підключення резервного живлення та встановлення систем захисту.
+          <p className="mt-4 text-base leading-relaxed text-white/70 text-pretty">
+            Супроводження проекту з однією компанією мінімізує помилки при виконанні умов різних розділів та значно
+            підвищує ефективність співпраці.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-blue-200 bg-blue-200/40 sm:grid-cols-2 lg:grid-cols-3">
-          {DIRECTIONS.map((d, i) => {
-            const Icon = d.icon
-
-            return (
-              <Reveal key={d.id} delay={i * 80} className="flex">
-                <article
-                  className={`group relative flex w-full flex-col p-7 transition-[background-color,box-shadow] duration-300 ${
-                    d.featured
-                      ? "bg-blue-600 text-white"
-                      : "bg-white text-slate-900 hover:bg-blue-50 hover:shadow-lg"
-                  }`}
-                >
-                  <span
-                    className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-blue-400 transition-transform duration-300 group-hover:scale-x-100"
-                    aria-hidden="true"
-                  />
-
-                  <div className="flex items-center justify-between">
-                    <span
-                      className={`flex h-11 w-11 items-center justify-center rounded-md transition-transform duration-300 group-hover:scale-110 ${
-                        d.featured ? "bg-white/20 text-white" : "bg-blue-100 text-blue-600"
-                      }`}
-                    >
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-
-                    <span
-                      className={`font-mono text-xs ${
-                        d.featured ? "text-white/80" : "text-slate-400"
-                      }`}
-                    >
-                      {d.id}
-                    </span>
-                  </div>
-
-                  <h3
-                    className={`mt-5 font-display text-lg font-semibold leading-snug ${
-                      d.featured ? "text-white" : "text-blue-900"
-                    }`}
-                  >
-                    {d.title}
-                  </h3>
-
-                  <p
-                    className={`mt-2 text-sm leading-relaxed ${
-                      d.featured ? "text-white/90" : "text-slate-600"
-                    }`}
-                  >
-                    {d.desc}
-                  </p>
-                </article>
-              </Reveal>
-            )
-          })}
-        </div>
+        <ol className="mt-14 grid gap-px overflow-hidden rounded-md border border-white/15 bg-white/10 md:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map((step, i) => (
+            <Reveal as="li" key={step.n} delay={i * 90} className="relative flex flex-col bg-black p-7">
+              <div className="group flex flex-1 flex-col">
+                <span className="font-display text-4xl font-bold text-white/20 transition-colors duration-300 group-hover:text-yellow-400">
+                  {step.n}
+                </span>
+                <span
+                  className="mt-3 h-px w-10 bg-yellow-400 transition-all duration-300 group-hover:w-16"
+                  aria-hidden="true"
+                />
+                <h3 className="mt-4 font-display text-base font-semibold leading-snug text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/65">{step.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </ol>
       </div>
     </section>
   )

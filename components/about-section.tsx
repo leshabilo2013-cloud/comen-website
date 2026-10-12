@@ -1,73 +1,55 @@
-import { CheckCircle2 } from "lucide-react"
-import { Reveal } from "@/components/reveal"
+import Link from "next/link"
+import { Zap, Mail, MapPin, ArrowUpRight } from "lucide-react"
 
-const HIGHLIGHTS = [
-  "Індивідуальний підхід до кожного проекту",
-  "Комплексний монтаж внутрішніх інженерних мереж",
-  "Мінімізація помилок між розділами проекту",
-  "Економія часу та коштів замовника",
-]
-
-export function AboutSection() {
+export function SiteFooter() {
   return (
-    <section id="about" className="scroll-mt-20 border-b border-border bg-background py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5">
-        <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
-          <Reveal>
-            <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">
-              <span className="h-px w-8 bg-primary" aria-hidden="true" />
-              Хто ми
+    <footer className="bg-black text-white">
+      <div className="mx-auto max-w-6xl px-5 py-20 md:py-24">
+        <div className="grid gap-12 border-b border-white/15 pb-16 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <dl className="grid gap-6 sm:grid-cols-2">
+            <div className="rounded-md border border-white/15 bg-white/5 p-6">
+              <dt className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-yellow-400">
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                Пошта
+              </dt>
+              <dd className="mt-3 text-sm text-white/85">info@comen.com.ua</dd>
+              <dd className="mt-1 text-sm leading-relaxed text-white/85">
+                02154, м. Київ, пр-т Соборності, б. 30, оф. 393<br />(044) 290-55-59
+              </dd>
             </div>
-            <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl text-balance">
-              ТОВ «Ком Ін Ком» спеціалізується в&nbsp;галузі електроенергетики
-            </h2>
-            <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground text-pretty">
-              <p>
-               Основним напрямом компанії є діяльність з дослідження об’єкта,
-                проєктування та електромонтажних робіт,
-                монтажу систем резервного живлення (генератори, інвертори, стабілізатори напруги), 
-                а також систем автоматизації та охоронної сигналізації.
-              </p>
-              <p>
-                Унікальність роботи з ТОВ «Ком Ін Ком» полягає в індивідуальному підході до кожного проекту. Співпраця з
-                нами дає можливість вирішувати питання комплексного монтажу внутрішніх інженерних мереж та систем із
-                супроводженням проекту від отримання технічних умов до здачі об&apos;єкта в експлуатацію — усе з однією
-                компанією.
-              </p>
+            <div className="rounded-md border border-white/15 bg-white/5 p-6">
+              <dt className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-yellow-400">
+                <MapPin className="h-4 w-4" aria-hidden="true" />
+                Компанія
+              </dt>
+              <dd className="mt-3 text-sm leading-relaxed text-white/85">
+                ТОВ «Ком Ін Ком» — Комунікаційна Інжинірінгова Компанія
+              </dd>
             </div>
+          </dl>
+        </div>
 
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {HIGHLIGHTS.map((item, i) => (
-                <Reveal
-                  as="li"
-                  key={item}
-                  delay={i * 80}
-                  className="flex items-start gap-2.5 text-sm text-foreground"
-                >
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                  <span>{item}</span>
-                </Reveal>
-              ))}
-            </ul>
-          </Reveal>
-
-          <Reveal delay={120} className="relative">
-            <div className="group overflow-hidden rounded-md border border-border">
-              <img
-                src="/images/control-panel.png"
-                alt="Промисловий електротехнічний щит керування та автоматизації"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="absolute -bottom-5 -left-5 hidden max-w-[220px] rounded-sm border border-border bg-card p-5 shadow-lg sm:block">
-              <p className="font-display text-2xl font-bold text-primary">Під ключ</p>
-              <p className="mt-1 text-xs leading-snug text-muted-foreground">
-                Від технічних умов до введення об&apos;єкта в експлуатацію
-              </p>
-            </div>
-          </Reveal>
+        <div className="flex flex-col items-start justify-between gap-6 pt-8 md:flex-row md:items-center">
+          <Link href="/" className="flex items-center gap-2.5">
+            <span className="flex h-8 w-8 items-center justify-center rounded-sm bg-yellow-400 text-black">
+              <Zap className="h-4 w-4" aria-hidden="true" />
+            </span>
+            <span className="font-display text-sm font-bold tracking-tight text-white">КОМ ІН КОМ</span>
+          </Link>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70" aria-label="Нижня навігація">
+            <Link href="/about" className="transition-colors hover:text-yellow-300">
+              Про компанію
+            </Link>
+            <Link href="/directions" className="transition-colors hover:text-yellow-300">
+              Напрямки
+            </Link>
+            <Link href="/contacts" className="transition-colors hover:text-yellow-300">
+              Контакти
+            </Link>
+          </nav>
+          <p className="font-mono text-xs text-white/40">© {new Date().getFullYear()} Ком Ін Ком</p>
         </div>
       </div>
-    </section>
+    </footer>
   )
 }

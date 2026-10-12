@@ -1,96 +1,52 @@
-"use client"
-
-import { useState } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
-const NAV = [
-  { label: "Головна", href: "/" },
-  { label: "Про компанію", href: "/about" },
-  { label: "Напрямки", href: "/directions" },
-  { label: "Контакти", href: "/contacts" },
-]
+interface Crumb {
+  label: string
+  href?: string
+}
 
-export function SiteHeader() {
-  const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+interface PageHeroProps {
+  eyebrow: string
+  title: string
+  description?: string
+  crumbs: Crumb[]
+}
 
-  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href))
-
+export function PageHero({ eyebrow, title, description, crumbs }: PageHeroProps) {
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-md shadow-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2">
-        
-        {/* Контейнер для логотипа и меню */}
-        <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center" aria-label="Ком Ін Ком – головна">
-            <img 
-              src="https://i.postimg.cc/jqB5pJhM/Logotip-removebg-preview.png" 
-              alt="Ком Ін Ком" 
-              className="h-20 md:h-24 w-auto object-contain transition-all" 
-            />
-          </Link>
-
-          <nav className="hidden items-center gap-6 md:flex" aria-label="Головна навігація">
-            {NAV.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={`text-sm transition-colors hover:text-black ${
-                  isActive(item.href) ? "font-semibold text-black" : "text-gray-600"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-
-        {/* Переключатель языка */}
-        <div className="hidden items-center gap-3 md:flex">
-          <div className="flex items-center gap-1 font-mono text-xs">
-            <span className="font-bold text-black">UA</span>
-            <span className="text-gray-300">/</span>
-            <a href="#" className="text-gray-500 transition-colors hover:text-black">
-              EN
-            </a>
-          </div>
-        </div>
-
-        {/* Мобильная кнопка */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 items-center justify-center rounded-sm border border-gray-200 text-black md:hidden"
-          aria-label={open ? "Закрити меню" : "Відкрити меню"}
-          aria-expanded={open}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </div>
-
-      {open && (
-        <nav className="border-t border-gray-200 bg-white px-5 py-4 md:hidden" aria-label="Мобільна навігація">
-          <ul className="flex flex-col gap-1">
-            {NAV.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`block rounded-sm px-2 py-2.5 text-sm transition-colors hover:bg-gray-100 hover:text-black ${
-                    isActive(item.href) ? "bg-gray-100 font-semibold text-black" : "text-gray-600"
-                  }`}
-                >
-                  {item.label}
+    <section className="border-b border-yellow-200 bg-[#fffdf5] py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-5">
+        <nav className="mb-6 flex items-center gap-2 text-xs text-gray-600">
+          {crumbs.map((crumb, index) => (
+            <div key={index} className="flex items-center gap-2">
+              {index > 0 && <ChevronRight className="h-3.5 w-3.5 text-gray-400" />}
+              {crumb.href ? (
+                <Link href={crumb.href} className="text-yellow-700 hover:text-yellow-900 transition-colors">
+                  {crumb.label}
                 </Link>
-              </li>
-            ))}
-          </ul>
+              ) : (
+                <span className="text-gray-800 font-medium">{crumb.label}</span>
+              )}
+            </div>
+          ))}
         </nav>
-      )}
-    </header>
+
+        <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-yellow-700">
+          <span className="h-px w-8 bg-yellow-500" aria-hidden="true" />
+          {eyebrow}
+        </div>
+
+        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-black md:text-5xl max-w-3xl">
+          {title}
+        </h1>
+
+        {description && (
+          <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-700 max-w-2xl">
+            {description}
+          </p>
+        )}
+      </div>
+    </section>
   )
 }

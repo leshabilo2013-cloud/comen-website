@@ -1,56 +1,92 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
-import { Zap, Mail, MapPin, ArrowUpRight } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { Menu, X } from "lucide-react"
 
-export function SiteFooter() {
+const NAV = [
+  { label: "Головна", href: "/" },
+  { label: "Про компанію", href: "/about" },
+  { label: "Напрямки", href: "/directions" },
+  { label: "Контакти", href: "/contacts" },
+]
+
+export function SiteHeader() {
+  const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href))
+
   return (
-    <footer className="bg-ink text-ink-foreground">
-      <div className="mx-auto max-w-6xl px-5 py-20 md:py-24">
-        <div className="grid gap-12 border-b border-ink-foreground/15 pb-16 lg:grid-cols-[1fr_1fr] lg:gap-16">
-
-          <dl className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-md border border-ink-foreground/15 p-6">
-              <dt className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-accent">
-                <Mail className="h-4 w-4" aria-hidden="true" />
-                Пошта
-              </dt>
-              <dd className="mt-3 text-sm text-ink-foreground/85">info@comen.com.ua</dd>
-<dd className="mt-1 text-sm leading-relaxed text-ink-foreground/85">
-  02154, м. Київ, пр-т Соборності, б. 30, оф. 393<br />(044) 290-55-59
-</dd>
-            </div>
-            <div className="rounded-md border border-ink-foreground/15 p-6">
-              <dt className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-accent">
-                <MapPin className="h-4 w-4" aria-hidden="true" />
-                Компанія
-              </dt>
-              <dd className="mt-3 text-sm leading-relaxed text-ink-foreground/85">
-                ТОВ «Ком Ін Ком» — Комунікаційна Інжинірінгова Компанія
-              </dd>
-            </div>
-          </dl>
-        </div>
-
-        <div className="flex flex-col items-start justify-between gap-6 pt-8 md:flex-row md:items-center">
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-sm bg-accent text-accent-foreground">
-              <Zap className="h-4 w-4" aria-hidden="true" />
-            </span>
-            <span className="font-display text-sm font-bold tracking-tight">КОМ ІН КОМ</span>
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-md shadow-sm">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center" aria-label="Ком Ін Ком – головна">
+            <img
+              src="https://i.postimg.cc/jqB5pJhM/Logotip-removebg-preview.png"
+              alt="Ком Ін Ком"
+              className="h-20 md:h-24 w-auto object-contain transition-all"
+            />
           </Link>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-foreground/60" aria-label="Нижня навігація">
-            <Link href="/about" className="transition-colors hover:text-ink-foreground">
-              Про компанію
-            </Link>
-            <Link href="/directions" className="transition-colors hover:text-ink-foreground">
-              Напрямки
-            </Link>
-            <Link href="/contacts" className="transition-colors hover:text-ink-foreground">
-              Контакти
-            </Link>
+
+          <nav className="hidden items-center gap-6 md:flex" aria-label="Головна навігація">
+            {NAV.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={`text-sm transition-colors hover:text-black ${
+                  isActive(item.href) ? "font-semibold text-black" : "text-gray-600"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
-          <p className="font-mono text-xs text-ink-foreground/40">© {new Date().getFullYear()} Ком Ін Ком</p>
         </div>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <div className="flex items-center gap-1 font-mono text-xs">
+            <span className="font-bold text-black">UA</span>
+            <span className="text-gray-300">/</span>
+            <a href="#" className="text-gray-500 transition-colors hover:text-black">
+              EN
+            </a>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="flex h-9 w-9 items-center justify-center rounded-sm border border-gray-200 bg-white text-black md:hidden"
+          aria-label={open ? "Закрити меню" : "Відкрити меню"}
+          aria-expanded={open}
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
-    </footer>
+
+      {open && (
+        <nav className="border-t border-gray-200 bg-white px-5 py-4 md:hidden" aria-label="Мобільна навігація">
+          <ul className="flex flex-col gap-1">
+            {NAV.map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={`block rounded-sm px-2 py-2.5 text-sm transition-colors hover:bg-yellow-50 hover:text-black ${
+                    isActive(item.href) ? "bg-yellow-50 font-semibold text-black" : "text-gray-600"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </header>
   )
 }
