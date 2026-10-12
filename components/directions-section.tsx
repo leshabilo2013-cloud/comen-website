@@ -6,7 +6,7 @@ const DIRECTIONS = [
     id: "01",
     icon: Zap,
     title: "Електромонтажні роботи",
-    desc: "Дослідження об'єкта, проектування та монтаж систем електропостачання будь-якої складності.",
+    desc: "Дослідження об'єкта, профектування та монтаж систем електропостачання будь-якої складності.",
     featured: true,
   },
   {
@@ -50,17 +50,21 @@ export function DirectionsSection() {
             <span className="h-px w-8 bg-blue-500" aria-hidden="true" />
             Напрямки роботи
           </div>
+
           <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-blue-900 md:text-4xl text-balance">
             Комплексний монтаж інженерних систем
           </h2>
+
           <p className="mt-4 text-base leading-relaxed text-slate-600 text-pretty">
-            Ми виконуємо повний спектр робіт із внутрішніх інженерних мереж — від електрики до автоматизації, підключення резервного живлення та встановлення систем захисту.
+            Ми виконуємо повний спектр робіт із внутрішніх інженерних мереж — від електрики до автоматизації,
+            підключення резервного живлення та встановлення систем захисту.
           </p>
         </Reveal>
 
         <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-blue-200 bg-blue-200/40 sm:grid-cols-2 lg:grid-cols-3">
           {DIRECTIONS.map((d, i) => {
             const Icon = d.icon
+
             return (
               <Reveal key={d.id} delay={i * 80} className="flex">
                 <article
@@ -74,6 +78,7 @@ export function DirectionsSection() {
                     className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-blue-400 transition-transform duration-300 group-hover:scale-x-100"
                     aria-hidden="true"
                   />
+
                   <div className="flex items-center justify-between">
                     <span
                       className={`flex h-11 w-11 items-center justify-center rounded-md transition-transform duration-300 group-hover:scale-110 ${
@@ -82,6 +87,7 @@ export function DirectionsSection() {
                     >
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
+
                     <span
                       className={`font-mono text-xs ${
                         d.featured ? "text-white/80" : "text-slate-400"
@@ -90,11 +96,15 @@ export function DirectionsSection() {
                       {d.id}
                     </span>
                   </div>
-                  <h3 className={`mt-5 font-display text-lg font-semibold leading-snug ${
-                    d.featured ? "text-white" : "text-blue-900"
-                  }`}>
+
+                  <h3
+                    className={`mt-5 font-display text-lg font-semibold leading-snug ${
+                      d.featured ? "text-white" : "text-blue-900"
+                    }`}
+                  >
                     {d.title}
                   </h3>
+
                   <p
                     className={`mt-2 text-sm leading-relaxed ${
                       d.featured ? "text-white/90" : "text-slate-600"
